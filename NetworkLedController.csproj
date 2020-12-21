@@ -1,0 +1,110 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{22855C21-67F8-4AB8-9D3D-43C635B47F8E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>NetworkLedController</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ledcontrol.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NetworkScanner.cs" />
+    <Compile Include="Pinger.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="TwitchBot.cs" />
+    <Compile Include="TwitchClientIrc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".git\COMMIT_EDITMSG" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\FETCH_HEAD" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\fsmonitor-watchman.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-merge-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\main" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\logs\refs\remotes\origin\main" />
+    <None Include=".git\objects\1f\5ac86beb68626f17bb9205c7dea3e77ddfce2a" />
+    <None Include=".git\objects\2b\62b48d263e205943ba499c7dcebf207d824b00" />
+    <None Include=".git\objects\43\9444ccaf32a95d5b23dcc618aac96956922bef" />
+    <None Include=".git\objects\73\7bba1b6f19232f7a876bec9123ab9f44d559b3" />
+    <None Include=".git\objects\84\492c0bafb7e73192ddfb3b2db115406d060632" />
+    <None Include=".git\objects\89\c754c0f8ffb2d153422d216fc3256bdd9ba769" />
+    <None Include=".git\objects\8b\137891791fe96927ad78e64b0aad7bded08bdc" />
+    <None Include=".git\objects\9c\0527d9ce04500208aafec94ba25c898dbfe479" />
+    <None Include=".git\objects\c5\1e5574064637e228a398117e3c51f6966e3ec3" />
+    <None Include=".git\objects\db\1e21bbb29823a6ccbe42672fedcfa48882e38f" />
+    <None Include=".git\objects\df\716344a9261def8c546d995413ca0797a338ed" />
+    <None Include=".git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391" />
+    <None Include=".git\objects\ee\2d9446c8a544e13da86f0ec788067b6d58eaf6" />
+    <None Include=".git\objects\f8\6def7177d7c2c6d887f0723cefa6f38eabab49" />
+    <None Include=".git\objects\fe\9a2b26d8d94d1769b60d3feaa8e297fab0d842" />
+    <None Include=".git\ORIG_HEAD" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\main" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include=".git\refs\remotes\origin\main" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\branches\" />
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

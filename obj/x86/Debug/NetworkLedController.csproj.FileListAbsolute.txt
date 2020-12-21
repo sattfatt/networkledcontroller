@@ -1,0 +1,6 @@
+C:\Users\sattf\Documents\networkledcontroller\bin\Debug\ConsoleApplication.exe
+C:\Users\sattf\Documents\networkledcontroller\bin\Debug\ConsoleApplication.pdb
+C:\Users\sattf\Documents\networkledcontroller\obj\x86\Debug\NetworkLedController.csprojAssemblyReference.cache
+C:\Users\sattf\Documents\networkledcontroller\obj\x86\Debug\NetworkLedController.csproj.CoreCompileInputs.cache
+C:\Users\sattf\Documents\networkledcontroller\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\sattf\Documents\networkledcontroller\obj\x86\Debug\ConsoleApplication.pdb
