@@ -67,7 +67,7 @@ namespace TwitchBotFramework
                 string m = _streamIn.ReadLine();
                 return m;
             }
-            catch (Exception e)
+            catch (System.Net.Sockets.SocketException e)
             {
                 Console.WriteLine("Error reading input stream" + e);
                 return "";

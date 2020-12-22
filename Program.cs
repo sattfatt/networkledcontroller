@@ -15,6 +15,7 @@ namespace LedController
         private static string _espIP;
 
         public static Stopwatch chatsw;
+        public static Stopwatch execsw;
 
         public static int chatCommandInterval = 5;
 
@@ -24,7 +25,10 @@ namespace LedController
             Twitchbot t = new Twitchbot();
             NetworkScanner.Espipfound += OnEspFound;
             chatsw = new Stopwatch();
+            execsw = new Stopwatch();
+
             chatsw.Start();
+            execsw.Start();
             // scan for the the esp and keep scanning untill found.
             while (!NetworkScanner.espFound && !NetworkScanner.isScanning)
             {
@@ -61,13 +65,15 @@ namespace LedController
 
                     Console.Write(e.Sender + ": ");
                     Console.WriteLine(e.Message);
-                    Random rnd = new Random();
+                    Random rnd = new Random((int)execsw.ElapsedMilliseconds);
 
 
                     Color c1 = new Color(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
                     Color c2 = new Color(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
                     Color c3 = new Color(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
                     Color c4 = new Color(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
+
+                    
 
                     PostToESP(_espIP, c1, c2, c3, c4);
                 }
@@ -119,6 +125,8 @@ namespace LedController
 
             wc.Headers["Content-Type"] = "application/x-www-form-urlencoded";
 
+            Console.WriteLine("Sending: " + c1.hex + ' ' + c2.hex + ' ' + c3.hex + ' ' + c4.hex);
+
             wc.UploadStringAsync(URI, "POST", "InputColor0=%23" + c1.hex + "&InputColor1=%23" + c2.hex + "&InputColor2=%23" + c3.hex + "&InputColor3=%23" + c4.hex);
 
         }
@@ -148,6 +156,11 @@ namespace LedController
             if (r < 0) this.r = 0; else if (r > 255) this.r = 255;
             if (g < 0) this.g = 0; else if (g > 255) this.g = 255;
             if (b < 0) this.b = 0; else if (b > 255) this.b = 255;
+
+            this.r = r;
+            this.g = g;
+            this.b = b;
+
             UpdateHex();
         }
 
@@ -250,7 +263,7 @@ namespace LedController
 
         private void UpdateHex()
         {
-            this.hex = r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
+            this.hex = this.r.ToString("X2") + this.g.ToString("X2") + this.b.ToString("X2");
         }
     }
 }
