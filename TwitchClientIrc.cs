@@ -23,6 +23,7 @@ namespace TwitchBotFramework
             {
                 UserName = username;
                 ChannelName = channel;
+                Console.WriteLine("Connecting to tcp client");
                 _tcpClient = new TcpClient(url, port);
                 _streamIn = new StreamReader(_tcpClient.GetStream());
                 _streamOut = new StreamWriter(_tcpClient.GetStream());

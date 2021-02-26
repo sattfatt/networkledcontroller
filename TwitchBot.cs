@@ -7,7 +7,7 @@ namespace TwitchBotFramework
 
         private static string _name = "boringprofessorbot";
         private static string _broadcaster = "boringmathprofessor";
-        private static string _OAuth = "oauth:qhj1i8177eopunuo6kz8v0xfr0wezz";
+        private static string _OAuth = "oauth:qd1ifa53rj37pma9sr19247jvvsuit";
 
         private TwitchClientIrc client;
         private Pinger pinger;
