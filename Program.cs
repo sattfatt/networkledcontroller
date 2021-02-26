@@ -8,7 +8,7 @@ namespace LedController
 {
 
     using NetworkScanner;
-    
+    using System.Net.Sockets;
 
     public class Program
     {
@@ -131,11 +131,17 @@ namespace LedController
 
         }
 
+        public static void SendUdp(int sourcePort, string destinationIp, int destinationPort, byte[] data)
+        {
+            using (UdpClient c = new UdpClient(sourcePort)) c.Send(data, data.Length, destinationIp, destinationPort);
+        }
+
         void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
             try
             {
-               // here we can do stuff but we dont really care about what the server sends back for now.
+                // here we can do stuff but we dont really care about what the server sends back for now.
+                Console.WriteLine("Server Response: " + e.Result);
             }
             catch(Exception ex)
             {
@@ -266,5 +272,6 @@ namespace LedController
             this.hex = this.r.ToString("X2") + this.g.ToString("X2") + this.b.ToString("X2");
         }
     }
+
 }
 
